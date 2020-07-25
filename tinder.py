@@ -39,7 +39,6 @@ passw.send_keys(password)
 pass_next = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button')
 pass_next.click()
 
-# time.sleep(3)
 
 driver.switch_to.window(main_tab)
 
