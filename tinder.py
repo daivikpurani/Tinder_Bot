@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from info import password,e_mail
+import random
 
 path = 'C:\drivers\chromedriver'
 
@@ -49,9 +50,21 @@ location.click()
 notif_no = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/div/div/div/div/div[3]/button[2]')))
 notif_no.click()
 
-like = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,'/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')))
-# like = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div/main/div/div[1]/div/div[2]/div[4]/button')
 
-for i in range(3):
-    like.click()
-    time.sleep(1)
+like = WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')))
+
+r = random.randint(0,1)
+t = random.randint(0,5)
+while True:
+    try:
+        if(r < 0.5):
+            time.sleep(t)
+            t = random.randint(0,10)
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button'))).send_keys(Keys.SPACE)
+        else:
+            time.sleep(t)
+            t = random.randint(0,10)
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[2]/button'))).send_keys(Keys.SPACE)
+        r = random.randint(0,1)
+    except:
+        driver.quit()
