@@ -6,6 +6,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from info import password,e_mail
 import random
+import sys
+
+sys.path.insert(0, 'C:\01\TECH\GITHUB\My Repos\Tinder\Tinder_Bot')
 
 path = 'C:\drivers\chromedriver'
 
